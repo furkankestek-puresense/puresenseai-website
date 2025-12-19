@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pure Sense AI Blog - Cilt bakımı, yapay zeka ve güzellik hakkında en güncel içerikler.">
+    <meta name="keywords" content="cilt bakımı blog, skincare tips, yapay zeka güzellik, Pure Sense AI">
+    <meta name="author" content="Pure Sense AI">
+    <meta name="theme-color" content="#FE83C6">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://puresenseai.com/blog">
+
+    <title>Blog - Pure Sense AI | Cilt Bakımı ve Yapay Zeka</title>
+
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Ensure navbar stays on top */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(15, 15, 25, 0.95);
+        }
+
+        .blog-hero {
+            padding: 160px 24px 80px;
+            background: var(--gradient-bg);
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .blog-hero .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-content {
+            padding: var(--section-padding);
+            background: var(--bg-white);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .blog-icon-wrapper svg {
+            stroke: white;
+        }
+
+        .blog-icon-wrapper.purple {
+            background: var(--secondary);
+        }
+
+        .blog-icon-wrapper.gradient {
+            background: linear-gradient(135deg, #F59E0B, #FE83C6);
+        }
+
+        .blog-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-card-meta svg {
+            stroke: var(--text-light);
+        }
+
+        .blog-card-content {
+            padding: 24px;
+        }
+
+        .blog-card-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .blog-coming-soon {
+            text-align: center;
+            padding: 80px 24px;
+        }
+
+        .blog-coming-soon-icon {
+            font-size: 5rem;
+            margin-bottom: 24px;
+        }
+
+        .blog-coming-soon h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .blog-coming-soon p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .blog-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+
+        .blog-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Dark mode */
+        body.dark-mode .blog-hero h1 {
+            color: var(--text-white);
+        }
+
+        body.dark-mode .blog-content {
+            background: var(--bg-dark);
+        }
+
+        body.dark-mode .blog-card {
+            background: var(--bg-card);
+        }
+
+        body.dark-mode .blog-card h3 {
+            color: var(--text-white);
+        }
+
+        body.dark-mode .blog-coming-soon h2 {
+            color: var(--text-white);
+        }
+
+        body.dark-mode .blog-card-image {
+            background: linear-gradient(135deg, #3d2a3e 0%, #2d1f2e 100%);
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding: 120px 24px 60px;
+            }
+
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo.png" alt="Pure Sense AI" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#features" class="nav-link">Özellikler</a></li>
+                <li><a href="index.html#how-it-works" class="nav-link">Nasıl Çalışır</a></li>
+                <li><a href="index.html#tips" class="nav-link">İpuçları</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+            </ul>
+            <a href="index.html#download" class="nav-cta">İndir</a>
+            <div class="nav-controls">
+                <button class="lang-toggle" id="langToggle" title="Change Language">
+                    <span class="lang-flag">🇹🇷</span>
+                    <span class="lang-code">TR</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <h1>Pure Sense <span class="gradient-text">Blog</span></h1>
+        <p>Cilt bakımı, yapay zeka ve güzellik hakkında en güncel içerikler</p>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="blog-coming-soon">
+            <div class="blog-coming-soon-icon">
+                <div class="blog-icon-wrapper" style="width: 100px; height: 100px;">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+            </div>
+            <h2>Blog Yakında Geliyor!</h2>
+            <p>Cilt bakımı ipuçları, yapay zeka teknolojileri ve güzellik trendleri hakkında içeriklerimiz çok yakında
+                burada olacak.</p>
+            <a href="index.html#download" class="blog-cta">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+                    <polyline points="3 7 12 13 21 7"></polyline>
+                </svg>
+                Haberdar Ol
+            </a>
+        </div>
+
+        <!-- Preview Cards (Coming Soon placeholders) -->
+        <div class="blog-grid" style="margin-top: 80px; opacity: 0.5; pointer-events: none;">
+            <article class="blog-card">
+                <div class="blog-card-image">
+                    <div class="blog-icon-wrapper">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M8 2v4M16 2v4M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+                            <path d="M3 10h18"></path>
+                            <circle cx="18" cy="18" r="3"></circle>
+                            <path d="M18 14v1"></path>
+                            <path d="M18 21v1"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="blog-card-content">
+                    <span class="blog-card-tag">Cilt Bakımı</span>
+                    <h3>Cilt Tipinize Göre Doğru Nemlendirici Seçimi</h3>
+                    <p>Kuru, yağlı veya karma cildiniz için en uygun nemlendiriciyi nasıl seçeceğinizi öğrenin...</p>
+                    <div class="blog-card-meta">
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Yakında
+                        </span>
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            5 dk okuma
+                        </span>
+                    </div>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-card-image">
+                    <div class="blog-icon-wrapper purple">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <path d="M12 7v4"></path>
+                            <line x1="8" y1="15" x2="8" y2="15.01"></line>
+                            <line x1="16" y1="15" x2="16" y2="15.01"></line>
+                            <path d="M9 19h6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="blog-card-content">
+                    <span class="blog-card-tag">Yapay Zeka</span>
+                    <h3>AI Cilt Analizi Nasıl Çalışır?</h3>
+                    <p>Pure Sense AI'ın arkasındaki teknoloji: Yapay zeka cildinizi nasıl analiz ediyor...</p>
+                    <div class="blog-card-meta">
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Yakında
+                        </span>
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            8 dk okuma
+                        </span>
+                    </div>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-card-image">
+                    <div class="blog-icon-wrapper gradient">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
+                    </div>
+                </div>
+                <div class="blog-card-content">
+                    <span class="blog-card-tag">İpuçları</span>
+                    <h3>Akne İle Mücadelede 10 Altın Kural</h3>
+                    <p>Dermatolojist onaylı yöntemlerle aknelerinizi kontrol altına alın...</p>
+                    <div class="blog-card-meta">
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Yakında
+                        </span>
+                        <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            6 dk okuma
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/logo.png" alt="Pure Sense AI" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">Yapay zeka destekli cilt analizi</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Ürün</h4>
+                        <a href="index.html#features">Özellikler</a>
+                        <a href="index.html#how-it-works">Nasıl Çalışır</a>
+                        <a href="index.html#download">İndir</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Yasal</h4>
+                        <a href="privacy.html">Gizlilik Politikası</a>
+                        <a href="terms.html">Kullanım Koşulları</a>
+                        <a href="kvkk.html">KVKK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Pure Sense AI. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('puresense_theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Theme toggle
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('puresense_theme',
+                document.body.classList.contains('dark-mode') ? 'dark' : 'light'
+            );
+            // Update logo filter
+            const isDark = document.body.classList.contains('dark-mode');
+            document.querySelectorAll('.logo-img, .footer-logo-img').forEach(img => {
+                img.style.filter = isDark ? 'brightness(0) invert(1)' : 'none';
+            });
+        });
+
+        // Apply dark mode logo filter on load
+        if (document.body.classList.contains('dark-mode')) {
+            document.querySelectorAll('.logo-img, .footer-logo-img').forEach(img => {
+                img.style.filter = 'brightness(0) invert(1)';
+            });
+        }
+    </script>
+</body>
+
+</html>

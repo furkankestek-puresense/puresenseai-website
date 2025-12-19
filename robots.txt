@@ -1,0 +1,23 @@
+# Pure Sense AI - robots.txt
+# https://puresenseai.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://puresenseai.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.git/
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /

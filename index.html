@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pure Sense AI - Yapay Zeka Destekli Cilt Analizi. Cildinizi analiz edin, kişiselleştirilmiş bakım önerileri alın.">
+    <meta name="keywords"
+        content="cilt analizi, yapay zeka, skincare, cilt bakımı, akne, leke, Pure Sense, AI skin analysis">
+    <meta name="author" content="Pure Sense AI">
+    <meta name="theme-color" content="#FE83C6">
+
+    <!-- Google Analytics 4 -->
+    <!-- Replace G-XXXXXXXXXX with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Facebook Pixel -->
+    <!-- Replace XXXXXXXXXXXXXXXX with your actual Pixel ID -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'XXXXXXXXXXXXXXXX');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXX&ev=PageView&noscript=1" /></noscript>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Pure Sense AI",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "HealthApplication",
+        "description": "Yapay zeka destekli cilt analizi uygulaması. Cildinizi analiz edin, kişiselleştirilmiş bakım önerileri alın.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1250"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Pure Sense AI",
+            "url": "https://puresenseai.com"
+        }
+    }
+    </script>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://puresenseai.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://puresenseai.com/">
+    <meta property="og:title" content="Pure Sense AI - Yapay Zeka ile Cilt Analizi">
+    <meta property="og:description"
+        content="Yapay zeka destekli cilt analizi ile cildinizi tanıyın. Kişiselleştirilmiş bakım rutini ve ürün önerileri alın.">
+    <meta property="og:image" content="https://puresenseai.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Pure Sense AI">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://puresenseai.com/">
+    <meta name="twitter:title" content="Pure Sense AI - Yapay Zeka ile Cilt Analizi">
+    <meta name="twitter:description"
+        content="Yapay zeka destekli cilt analizi ile cildinizi tanıyın. Kişiselleştirilmiş bakım rutini ve ürün önerileri alın.">
+    <meta name="twitter:image" content="https://puresenseai.com/assets/og-image.png">
+
+    <!-- App Links -->
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
+    <meta name="google-play-app" content="app-id=com.puresenseai.app">
+
+    <title>Pure Sense AI - Yapay Zeka ile Cilt Analizi</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('✅ Service Worker registered:', reg.scope))
+                    .catch(err => console.log('❌ Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/logo.png" alt="Pure Sense AI" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#features" class="nav-link" data-i18n="nav.features">Özellikler</a></li>
+                <li><a href="#how-it-works" class="nav-link" data-i18n="nav.howItWorks">Nasıl Çalışır</a></li>
+                <li><a href="#tips" class="nav-link" data-i18n="tips.badge">İpuçları</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="about.badge">Hakkında</a></li>
+                <li><a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog</a></li>
+            </ul>
+            <a href="#download" class="nav-cta" data-i18n="nav.download">İndir</a>
+            <div class="nav-controls">
+                <button class="lang-toggle" id="langToggle" title="Change Language">
+                    <span class="lang-flag">🇹🇷</span>
+                    <span class="lang-code">TR</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg class="badge-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                    </svg>
+                    <span data-i18n="hero.badge">Yapay Zeka Destekli</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-gradient" data-i18n="hero.title1">Cildinizi Tanıyın,</span>
+                    <br>
+                    <span class="title-white" data-i18n="hero.title2">Güzelliğinizi Keşfedin</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">
+                    Pure Sense AI ile cildinizi saniyeler içinde analiz edin.
+                    Kişiselleştirilmiş bakım rutini ve ürün önerileri alın.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                        App Store
+                    </a>
+                    <a href="#download" class="btn btn-secondary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z" />
+                        </svg>
+                        Google Play
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label" data-i18n="hero.stat1">İndirme</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label" data-i18n="hero.stat2">Puan</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">%99</span>
+                        <span class="stat-label" data-i18n="hero.stat3">Doğruluk</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="app-preview">
+                                <div class="app-header">
+                                    <div class="app-greeting">Merhaba</div>
+                                    <div class="app-title">Cilt Analizine Hoş Geldin</div>
+                                </div>
+                                <div class="app-scan-btn">
+                                    <svg class="scan-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                        </path>
+                                        <circle cx="12" cy="13" r="4"></circle>
+                                    </svg>
+                                    <span>Taramayı Başlat</span>
+                                </div>
+                                <div class="app-features">
+                                    <div class="mini-feature">AI Analiz</div>
+                                    <div class="mini-feature">Ürün Önerileri</div>
+                                    <div class="mini-feature">Günlük Rutin</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card card-1">
+                        <div class="card-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="card-text">
+                            <span class="card-title">Cilt Tipi</span>
+                            <span class="card-value">Karma</span>
+                        </div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                            </svg>
+                        </div>
+                        <div class="card-text">
+                            <span class="card-title">Analiz</span>
+                            <span class="card-value">%95 Başarılı</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="features.badge">Özellikler</span>
+                <h2 class="section-title"><span data-i18n="features.title1">Cilt Bakımında</span> <span
+                        class="gradient-text" data-i18n="features.title2">Yeni Nesil</span></h2>
+                <p class="section-subtitle" data-i18n="features.subtitle">Yapay zeka teknolojimiz ile cildinizi hiç
+                    olmadığı kadar iyi tanıyın</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card feature-large">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
+                            <path d="M16 10v1a4 4 0 0 1-8 0v-1" />
+                            <path d="M12 14v8" />
+                            <path d="M8 22h8" />
+                            <circle cx="12" cy="6" r="1" />
+                            <path d="M20 8v6a8 8 0 0 1-16 0V8" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.card1Title">AI Cilt Analizi</h3>
+                    <p class="feature-desc" data-i18n="features.card1Desc">
+                        Gelişmiş yapay zeka algoritmamız cildinizi detaylı analiz eder.
+                        Akne, leke, gözenek genişlemesi ve daha fazlasını saniyeler içinde tespit eder.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper small">
+                        <svg class="feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                            </path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.card2Title">Akıllı Kamera</h3>
+                    <p class="feature-desc" data-i18n="features.card2Desc">
+                        Yüz algılama ile otomatik fotoğraf çekimi. En doğru sonuçlar için optimize edildi.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper small purple">
+                        <svg class="feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.card3Title">Ürün Önerileri</h3>
+                    <p class="feature-desc" data-i18n="features.card3Desc">
+                        Cilt sorunlarınıza özel ürün tavsiyeleri. Trendyol, Amazon ve daha fazlasından.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper small orange">
+                        <svg class="feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.card4Title">Günlük Rutin</h3>
+                    <p class="feature-desc" data-i18n="features.card4Desc">
+                        Sabah ve akşam cilt bakım rutininizi kişiselleştirilmiş olarak planlayın.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper small green">
+                        <svg class="feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M17 18a5 5 0 0 0-10 0"></path>
+                            <line x1="12" y1="2" x2="12" y2="9"></line>
+                            <line x1="4.22" y1="10.22" x2="5.64" y2="11.64"></line>
+                            <line x1="1" y1="18" x2="3" y2="18"></line>
+                            <line x1="21" y1="18" x2="23" y2="18"></line>
+                            <line x1="18.36" y1="11.64" x2="19.78" y2="10.22"></line>
+                            <line x1="23" y1="22" x2="1" y2="22"></line>
+                            <polyline points="8,6 12,2 16,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.card5Title">Çevre Verileri</h3>
+                    <p class="feature-desc" data-i18n="features.card5Desc">
+                        UV indeksi ve hava kalitesi bilgileriyle cildinizi koruyun.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper small blue">
+                        <svg class="feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.card6Title">Analiz Geçmişi</h3>
+                    <p class="feature-desc" data-i18n="features.card6Desc">
+                        Geçmiş analizlerinizi takip edin, cildinizdeki değişimleri görün.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="howItWorks.badge">Nasıl Çalışır</span>
+                <h2 class="section-title"><span data-i18n="howItWorks.title1">3 Adımda</span> <span
+                        class="gradient-text" data-i18n="howItWorks.title2">Mükemmel Cilt</span></h2>
+                <p class="section-subtitle" data-i18n="howItWorks.subtitle">Kullanımı çok basit, sonuçları muhteşem</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-header">
+                        <div class="step-icon-wrapper">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                </path>
+                                <circle cx="12" cy="13" r="4"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title" data-i18n="howItWorks.step1Title">Fotoğraf Çek</h3>
+                        <p class="step-desc" data-i18n="howItWorks.step1Desc">
+                            Akıllı kameramız yüzünüzü otomatik algılar ve en doğru açıda fotoğraf çeker.
+                            Sadece kameraya bakın, gerisini biz halledelim.
+                        </p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-circle">
+                            <div class="face-frame"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-connector">
+                    <div class="connector-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-header">
+                        <div class="step-icon-wrapper purple">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title" data-i18n="howItWorks.step2Title">AI Analiz</h3>
+                        <p class="step-desc" data-i18n="howItWorks.step2Desc">
+                            Yapay zeka teknolojimiz cildinizi derinlemesine analiz eder.
+                            Cilt tipi, sorunlar ve ihtiyaçlarınız saniyeler içinde belirlenir.
+                        </p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-circle analyzing">
+                            <div class="scan-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-connector">
+                    <div class="connector-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-header">
+                        <div class="step-icon-wrapper gradient">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title" data-i18n="howItWorks.step3Title">Öneriler Al</h3>
+                        <p class="step-desc" data-i18n="howItWorks.step3Desc">
+                            Size özel ürün önerileri ve günlük cilt bakım rutini alın.
+                            Popüler e-ticaret sitelerinden doğrudan satın alın.
+                        </p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-circle complete">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Recommendations Section -->
+    <section class="products-highlight" id="products">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="products.badge">Ürün Önerileri</span>
+                <h2 class="section-title"><span data-i18n="products.title1">Cildine Özel</span> <span
+                        class="gradient-text" data-i18n="products.title2">Ürünler</span></h2>
+                <p class="section-subtitle" data-i18n="products.subtitle">Her cilt tipine ve sorununa uygun, uzman
+                    seçimi ürünlere tek tıkla ulaşın
+                </p>
+            </div>
+
+            <div class="products-content">
+                <div class="products-info">
+                    <div class="product-benefit">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="benefit-text">
+                            <h3 data-i18n="products.benefit1Title">Akıllı Eşleştirme</h3>
+                            <p data-i18n="products.benefit1Desc">Yapay zeka, tespit ettiği cilt sorunlarınıza göre en
+                                uygun ürünleri seçer. Akne, leke,
+                                kırışıklık, kuruluk - her soruna özel çözümler.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-benefit">
+                        <div class="benefit-icon purple">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </div>
+                        <div class="benefit-text">
+                            <h3 data-i18n="products.benefit2Title">Tek Tıkla Satın Al</h3>
+                            <p data-i18n="products.benefit2Desc">Beğendiğiniz ürüne dokunun, doğrudan e-ticaret sitesine
+                                yönlendirilip hemen satın alın.
+                                Trendyol, Amazon, Watsons ve daha fazlası.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-benefit">
+                        <div class="benefit-icon orange">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                        <div class="benefit-text">
+                            <h3 data-i18n="products.benefit3Title">Güvenilir Markalar</h3>
+                            <p data-i18n="products.benefit3Desc">La Roche-Posay, The Ordinary, CeraVe, Bioderma gibi
+                                dünyaca ünlü dermokozmetik markaların
+                                ürünlerini öneriyoruz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-showcase">
+                    <div class="showcase-card">
+                        <div class="showcase-header">
+                            <span class="skin-type">Yağlı Cilt</span>
+                            <span class="product-count">12+ Ürün</span>
+                        </div>
+                        <div class="showcase-items">
+                            <div class="showcase-item">Salisilik Asitli Temizleyici</div>
+                            <div class="showcase-item">Niacinamide Serum</div>
+                            <div class="showcase-item">Oil-Free Nemlendirici</div>
+                        </div>
+                    </div>
+                    <div class="showcase-card">
+                        <div class="showcase-header">
+                            <span class="skin-type">Kuru Cilt</span>
+                            <span class="product-count">15+ Ürün</span>
+                        </div>
+                        <div class="showcase-items">
+                            <div class="showcase-item">Hyaluronik Asit Serum</div>
+                            <div class="showcase-item">Zengin Nemlendirici</div>
+                            <div class="showcase-item">Yağ Bazlı Temizleyici</div>
+                        </div>
+                    </div>
+                    <div class="showcase-card">
+                        <div class="showcase-header">
+                            <span class="skin-type">Karma Cilt</span>
+                            <span class="product-count">18+ Ürün</span>
+                        </div>
+                        <div class="showcase-items">
+                            <div class="showcase-item">Dengeleyici Tonik</div>
+                            <div class="showcase-item">Hafif Jel Nemlendirici</div>
+                            <div class="showcase-item">BHA/AHA Peeling</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="partners-section">
+                <p class="partners-label" data-i18n="products.partnersLabel">Ürünler şu platformlardan temin edilebilir:
+                </p>
+                <div class="partners-logos">
+                    <a href="https://www.trendyol.com" target="_blank" class="partner-card">
+                        <img src="assets/logo-trendyol.jpg" alt="Trendyol" class="partner-logo" loading="lazy">
+                    </a>
+                    <a href="https://www.amazon.com.tr" target="_blank" class="partner-card">
+                        <img src="assets/logo-amazon.png" alt="Amazon" class="partner-logo" loading="lazy">
+                    </a>
+                    <a href="https://www.watsons.com.tr" target="_blank" class="partner-card">
+                        <img src="assets/logo-watsons.png" alt="Watsons" class="partner-logo" loading="lazy">
+                    </a>
+                    <a href="https://www.gratis.com" target="_blank" class="partner-card">
+                        <img src="assets/logo-gratis.png" alt="Gratis" class="partner-logo" loading="lazy">
+                    </a>
+                    <a href="https://www.hepsiburada.com" target="_blank" class="partner-card">
+                        <img src="assets/logo-hepsiburada.png" alt="Hepsiburada" class="partner-logo" loading="lazy">
+                    </a>
+                </div>
+                <p class="partners-more" data-i18n="products.partnersMore">ve daha fazla marka ile!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips" id="tips">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="tips.badge">İpuçları</span>
+                <h2 class="section-title"><span data-i18n="tips.title1">En İyi</span> <span class="gradient-text"
+                        data-i18n="tips.title2">Sonuç İçin</span></h2>
+                <p class="section-subtitle" data-i18n="tips.subtitle">Bu ipuçlarını takip ederek daha doğru analiz
+                    sonuçları alın</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon-wrapper">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="9" y1="18" x2="15" y2="18"></line>
+                            <line x1="10" y1="22" x2="14" y2="22"></line>
+                            <path
+                                d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="tip-title" data-i18n="tips.tip1Title">Doğal Aydınlatma</h3>
+                    <p class="tip-desc" data-i18n="tips.tip1Desc">Doğal ışıkta veya iyi aydınlatılmış ortamda çekim
+                        yapın. Gölgeler analizi
+                        olumsuz etkileyebilir.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon-wrapper">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="tip-title" data-i18n="tips.tip2Title">Doğru Konum</h3>
+                    <p class="tip-desc" data-i18n="tips.tip2Desc">Yüzünüzü kameraya düz tutun. Çerçeveyi takip ederek
+                        doğru konumu yakalayın.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon-wrapper">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="tip-title" data-i18n="tips.tip3Title">Makyajsız Çekim</h3>
+                    <p class="tip-desc" data-i18n="tips.tip3Desc">En doğru sonuçlar için analiz öncesi makyajınızı
+                        temizleyin.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon-wrapper">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="tip-title" data-i18n="tips.tip4Title">Saçları Toplayın</h3>
+                    <p class="tip-desc" data-i18n="tips.tip4Desc">Saçınızı yüzünüzden uzak tutun, böylece tüm yüz alanı
+                        analiz edilebilir.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon-wrapper">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="19" y1="5" x2="5" y2="19"></line>
+                            <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                            <circle cx="17.5" cy="17.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="tip-title" data-i18n="tips.tip5Title">Doğru Mesafe</h3>
+                    <p class="tip-desc" data-i18n="tips.tip5Desc">Telefonunuzu yüzünüzden 30-40cm uzaklıkta tutun.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon-wrapper">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tip-title" data-i18n="tips.tip6Title">Düzenli Analiz</h3>
+                    <p class="tip-desc" data-i18n="tips.tip6Desc">Haftalık analiz yaparak cildinizdeki değişimleri takip
+                        edin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-badge" data-i18n="about.badge">Hakkında</span>
+                    <h2 class="section-title"><span data-i18n="about.title1">Pure Sense AI</span> <span
+                            class="gradient-text" data-i18n="about.title2">Nedir?</span></h2>
+                    <p class="about-desc" data-i18n="about.desc1">
+                        Pure Sense AI, yapay zeka destekli cilt analizi uygulamasıdır.
+                        Amacımız, herkesin profesyonel cilt bakımı danışmanlığına erişebilmesini sağlamak.
+                    </p>
+                    <p class="about-desc" data-i18n="about.desc2">
+                        Gelişmiş görüntü işleme ve makine öğrenimi teknolojileri kullanarak,
+                        cildinizi saniyeler içinde analiz ediyor ve size özel öneriler sunuyoruz.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <div class="highlight-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <div class="highlight-text">
+                                <strong data-i18n="about.highlight1Title">Güvenli</strong>
+                                <span data-i18n="about.highlight1Desc">Verileriniz şifrelenir</span>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="highlight-text">
+                                <strong data-i18n="about.highlight2Title">Çoklu Dil</strong>
+                                <span data-i18n="about.highlight2Desc">Türkçe & İngilizce</span>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <div class="highlight-text">
+                                <strong data-i18n="about.highlight3Title">Hızlı</strong>
+                                <span data-i18n="about.highlight3Desc">Saniyeler içinde sonuç</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <div class="image-decoration"></div>
+                        <div class="about-phone">
+                            <div class="result-preview">
+                                <div class="result-header">Analiz Sonucu</div>
+                                <div class="result-item">
+                                    <span class="result-label">Cilt Tipi</span>
+                                    <span class="result-value">Karma</span>
+                                </div>
+                                <div class="result-bar">
+                                    <div class="bar-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Güven Skoru</span>
+                                    <span class="result-value">%95</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Routine Section -->
+    <section class="comparison" id="comparison">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="comparison.badge">Kişisel Rutin</span>
+                <h2 class="section-title"><span data-i18n="comparison.title1">Analiz</span> <span class="gradient-text"
+                        data-i18n="comparison.title2">Sonuçları</span></h2>
+                <p class="section-subtitle routine-desc">
+                    Analiz sonuçlarınız hazır olduğunda, cilt tipinize ve tespit edilen sorunlarınıza en uygun ürünleri
+                    sizin için buluyoruz. Kişiselleştirilmiş bir bakım rutini oluşturuyoruz ve uygulamamız bu rutini
+                    akıllı alarm hatırlatmalarıyla takip etmenizi sağlıyor.
+                </p>
+            </div>
+            <div class="routine-container">
+                <!-- Routine Process Steps -->
+                <div class="routine-steps">
+                    <div class="routine-step">
+                        <div class="routine-icon-wrapper">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2">
+                                </path>
+                                <rect x="9" y="3" width="6" height="4" rx="1"></rect>
+                                <path d="M9 14l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <h4>Sonuç Analizi</h4>
+                        <p>Cilt tipiniz ve sorunlarınız detaylı olarak belirlenir</p>
+                    </div>
+                    <div class="routine-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="routine-step">
+                        <div class="routine-icon-wrapper purple">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </div>
+                        <h4>Ürün Önerileri</h4>
+                        <p>Size özel dermokozmetik ürünler önerilir</p>
+                    </div>
+                    <div class="routine-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="routine-step">
+                        <div class="routine-icon-wrapper gradient">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h4>Rutin Hatırlatma</h4>
+                        <p>Akıllı alarmlarla bakım rutininizi takip edin</p>
+                    </div>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="comparison-info">
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="comparison.feature1Title">Hassas Tespit</h4>
+                        <p data-i18n="comparison.feature1Desc">AI, cilt sorunlarını piksel düzeyinde tespit eder</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper purple">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="comparison.feature2Title">Detaylı Rapor</h4>
+                        <p data-i18n="comparison.feature2Desc">Her sorun için önem derecesi ve çözüm önerileri</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper gradient">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="comparison.feature3Title">Anında Sonuç</h4>
+                        <p data-i18n="comparison.feature3Desc">3 saniyede kapsamlı cilt analizi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="faq.badge">SSS</span>
+                <h2 class="section-title"><span data-i18n="faq.title1">Sıkça Sorulan</span> <span class="gradient-text"
+                        data-i18n="faq.title2">Sorular</span></h2>
+                <p class="section-subtitle" data-i18n="faq.subtitle">Pure Sense AI hakkında merak ettikleriniz</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q1">Pure Sense AI nasıl çalışır?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.a1">Pure Sense AI, yapay zeka destekli görüntü işleme teknolojisi kullanarak
+                            yüzünüzün
+                            fotoğrafını analiz eder. Gelişmiş makine öğrenimi modelleri ile cilt tipinizi, sorunlarınızı
+                            tespit eder ve size özel ürün önerileri sunar.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q2">Verilerim güvende mi?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.a2">Evet, verileriniz tamamen güvendedir. KVKK'ya tam uyumluyuz.
+                            Fotoğraflarınız yalnızca analiz
+                            için kullanılır ve sunucularımızda saklanmaz. Kişisel verileriniz şifreli olarak korunur.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q3">Uygulama ücretsiz mi?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.a3">Pure Sense AI'ın temel özellikleri ücretsizdir. Cilt analizi, ürün
+                            önerileri ve günlük rutin
+                            önerileri ücretsiz olarak sunulmaktadır. Premium özellikler için uygun fiyatlı abonelik
+                            seçenekleri mevcuttur.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q4">Hangi cilt sorunlarını tespit edebiliyor?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.a4">Uygulamamız akne, sivilce, leke, kırışıklık, kızarıklık, gözenek
+                            genişlemesi, cilt kuruluğu,
+                            yağlanma ve daha birçok cilt sorununu tespit edebilir. Sürekli güncellenen AI modelimiz her
+                            geçen gün daha da gelişmektedir.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q5">Önerilen ürünleri nereden satın alabilirim?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.a5">Önerilen ürünlere tek tıkla ulaşabilirsiniz. Trendyol, Amazon, Watsons,
+                            Gratis, Hepsiburada
+                            gibi popüler e-ticaret platformlarındaki ürünlere doğrudan yönlendirilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq.q6">Analiz sonuçları ne kadar doğru?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.a6">AI modelimiz %95'in üzerinde doğruluk oranına sahiptir. Ancak uygulamamız
+                            tıbbi teşhis aracı
+                            değildir. Ciddi cilt sorunları için mutlaka bir dermatologa danışmanızı öneririz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="download-bg">
+            <div class="download-blob blob-1"></div>
+            <div class="download-blob blob-2"></div>
+        </div>
+        <div class="section-container">
+            <div class="download-content">
+                <div class="coming-soon-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span data-i18n="download.badge">Çok Yakında</span>
+                </div>
+                <h2 class="download-title"><span data-i18n="download.title1">Lansmana Hazır Olun,</span> <br><span
+                        class="gradient-text" data-i18n="download.title2">İlk Siz Deneyin</span>
+                </h2>
+                <p class="download-subtitle" data-i18n="download.subtitle">
+                    Pure Sense AI yakında App Store ve Google Play'de!
+                    E-posta adresinizi bırakın, uygulama yayınlandığında ilk siz haberdar olun.
+                </p>
+
+                <!-- Email Signup Form -->
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="E-posta adresiniz"
+                            data-i18n="download.emailPlaceholder" required>
+                        <button type="submit" class="btn btn-submit">
+                            <span data-i18n="download.submitBtn">Beni Haberdar Et</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="form-note">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <span data-i18n="download.formNote">Spam göndermiyoruz, verileriniz güvende.</span>
+                    </p>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div class="success-message" id="successMessage" style="display: none;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <h3 data-i18n="download.successTitle">Teşekkürler!</h3>
+                    <p data-i18n="download.successMsg">Uygulama yayınlandığında size haber vereceğiz.</p>
+                </div>
+
+                <!-- Store Buttons (Coming Soon style) -->
+                <div class="store-preview">
+                    <p class="store-preview-label" data-i18n="download.storeLabel">Yakında bu platformlarda:</p>
+                    <div class="download-buttons disabled">
+                        <div class="store-btn coming-soon">
+                            <div class="store-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                                </svg>
+                            </div>
+                            <div class="store-text">
+                                <span class="store-label" data-i18n="download.comingSoon">Yakında</span>
+                                <span class="store-name">App Store</span>
+                            </div>
+                        </div>
+                        <div class="store-btn coming-soon">
+                            <div class="store-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z" />
+                                </svg>
+                            </div>
+                            <div class="store-text">
+                                <span class="store-label" data-i18n="download.comingSoon">Yakında</span>
+                                <span class="store-name">Google Play</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <img src="assets/logo.png" alt="Pure Sense AI" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline" data-i18n="footer.tagline">Yapay zeka destekli cilt analizi</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.productTitle">Ürün</h4>
+                        <a href="#features" data-i18n="nav.features">Özellikler</a>
+                        <a href="#how-it-works" data-i18n="nav.howItWorks">Nasıl Çalışır</a>
+                        <a href="#tips" data-i18n="tips.badge">İpuçları</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.legalTitle">Yasal</h4>
+                        <a href="privacy.html" data-i18n="footer.privacy">Gizlilik Politikası</a>
+                        <a href="terms.html" data-i18n="footer.terms">Kullanım Koşulları</a>
+                        <a href="kvkk.html" data-i18n="footer.kvkk">KVKK</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer.supportTitle">Destek</h4>
+                        <a href="mailto:destek@puresenseai.com">destek@puresenseai.com</a>
+                        <a href="#faq" data-i18n="faq.badge">SSS</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 Pure Sense AI. Tüm hakları saklıdır.</p>
+                <p class="disclaimer" data-i18n="footer.disclaimer">Bu uygulama tıbbi tavsiye vermez. Cilt sorunlarınız
+                    için bir dermatoloğa danışın.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exit Intent Popup Modal -->
+    <div id="exit-popup" class="exit-popup">
+        <div class="exit-popup-overlay"></div>
+        <div class="exit-popup-content">
+            <button class="exit-popup-close" aria-label="Kapat">&times;</button>
+            <div class="exit-popup-icon">🎁</div>
+            <h3 class="exit-popup-title" data-i18n="exitPopup.title">Bekle! Fırsatı Kaçırma</h3>
+            <p class="exit-popup-desc" data-i18n="exitPopup.desc">Uygulama çıktığında ilk erişim için bekleme listesine
+                katıl ve özel indirimlerden haberdar ol!</p>
+            <form class="exit-popup-form" id="exit-popup-form">
+                <input type="email" placeholder="E-posta adresiniz" required>
+                <button type="submit" class="exit-popup-btn" data-i18n="exitPopup.button">Listeme Katıl</button>
+            </form>
+            <p class="exit-popup-note" data-i18n="exitPopup.note">Spam göndermeyiz. İstediğiniz zaman çıkabilirsiniz.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
